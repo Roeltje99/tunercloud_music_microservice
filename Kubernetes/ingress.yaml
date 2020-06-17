@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: music-ingress
+spec:
+  rules:
+  - host: tunercloud.music.kn01.fhict.nl
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: music
+          servicePort: 8080
+  - host: tunercloud.adminer.kn01.fhict.nl
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: adminer
+          servicePort: 8091

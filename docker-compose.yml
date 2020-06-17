@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  music-db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: music
+
+  adminer:
+    image: adminer
+    ports:
+      - 8091:8080
+
+
+  music:
+    build: .
+    image: roeltje99/tunercloud.music
+    ports:
+      - '8090:8080'
